@@ -1,11 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Musk Replacer Options</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deodorant Options</title>
+    <style>
+      /* Base Styles */
+      body {
+        background: #f0f2f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #333;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        line-height: 1.4;
+        max-width: 600px;
+      }
+
+      /* Cheeky wink added */
+      h1::after {
+        content: " 😉";
+        font-size: 1em;
+      }
+
+      input[type="text"] {
+        width: 300px;
+        padding: 10px 15px;
+        font-size: 1em;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        margin-bottom: 1em;
+      }
+
+      input[type="text"]:focus {
+        border-color: #007bff;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
   </head>
   <body>
-    <h1>Set Your Replacement Word</h1>
+    <h1>
+      Set the word or phrase you would like to use to replace Elon Musk all over
+      the Internet.
+    </h1>
     <input type="text" id="replacement" placeholder="Enter replacement word" />
     <button id="save">Save</button>
 
