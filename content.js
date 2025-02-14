@@ -11,7 +11,6 @@ function walk(node, replacement) {
   // If node is an element and it's a SCRIPT with speculation rules, skip it.
   if (node.nodeType === 1 && node.tagName === "SCRIPT") {
     const type = node.getAttribute("type");
-    // Adjust the condition based on how speculation rules are identified.
     if (type && type.includes("speculation")) {
       return;
     }
@@ -41,5 +40,19 @@ chrome.storage.sync.get("replacement", ({ replacement }) => {
   if (typeof replacement !== "string" || replacement === "") {
     replacement = "Beebop Space Man"; // Default word if none is set
   }
+
+  // Initial replacement for the current DOM
   walk(document.body, replacement);
+
+  // Setup MutationObserver to handle dynamically added content
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        walk(node, replacement);
+      });
+    });
+  });
+
+  // Start observing document.body for changes in the subtree
+  observer.observe(document.body, { childList: true, subtree: true });
 });
