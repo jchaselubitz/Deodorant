@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deodorant Options</title>
+    <style>
+      /* Base Styles */
+      body {
+        background: #f0f2f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #333;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        line-height: 1.4;
+        max-width: 600px;
+      }
+
+      .replacement-pair {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        align-items: center;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 200px;
+        height: fit-content;
+        padding: 10px 15px;
+        font-size: 1em;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      textarea {
+        width: 300px;
+        resize: vertical;
+        height: 100px;
+        margin-bottom: 1em;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
+        border-color: #007bff;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1.4em;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      .remove-pair {
+        background: #dc3545;
+      }
+
+      .remove-pair:hover {
+        background: #c82333;
+      }
+
+      #addPair {
+        background: transparent;
+        border: 2px solid #007bff;
+        color: #007bff;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1;
+        border-radius: 5px;
+      }
+
+      #addPair:hover {
+        background: #007bff;
+        color: #fff;
+      }
+
+      #replacementPairs {
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <h1>Word Replacement Pairs</h1>
+      <p>Add words or phrases you'd like to replace across the Internet.</p>
+      <div id="replacementPairs"></div>
+      <button id="addPair">+</button>
+    </div>
+
+    <div class="section">
+      <h1>Excluded Domains</h1>
+      <p>List the sites you DO NOT want the extension to affect (one per line).</p>
+      <textarea
+        id="excludedDomains"
+        placeholder="Enter domains to exclude, one per line"
+      ></textarea>
+    </div>
+
+    <button id="save">Save Changes</button>
+
+    <script src="options.js"></script>
+  </body>
+</html>

@@ -27,14 +27,11 @@
         max-width: 600px;
       }
 
-      /* Cheeky wink added */
-      h1::after {
-        content: " 😉";
-        font-size: 1em;
-      }
 
-      input[type="text"] {
+      input[type="text"],
+      textarea {
         width: 300px;
+        height: fit-content;
         padding: 10px 15px;
         font-size: 1em;
         border: 2px solid #ddd;
@@ -44,7 +41,13 @@
         margin-bottom: 1em;
       }
 
-      input[type="text"]:focus {
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
         border-color: #007bff;
       }
 
@@ -67,9 +70,17 @@
   <body>
     <h1>
       Set the word or phrase you would like to use to replace Elon Musk all over
-      the Internet.
+      the Internet. 😉
     </h1>
     <input type="text" id="replacement" placeholder="Enter replacement word" />
+
+    <h1>Excluded Domains (one per line)</h1>
+    <p>Here you can list the sites you DO NOT want the extension to affect.</p>
+    <textarea
+      id="excludedDomains"
+      placeholder="Enter domains to exclude, one per line"
+    ></textarea>
+
     <button id="save">Save</button>
 
     <script src="options.js"></script>
